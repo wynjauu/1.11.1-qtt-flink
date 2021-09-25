@@ -1,0 +1,19 @@
+syntax = "proto2";
+
+option java_package = "org.apache.flink.formats.protobuf.message";
+option java_outer_classname = "MessageSidecarLog";
+
+message Log {
+  optional string app = 1;                       // 服务简短名称
+  optional string opsservice = 2;                // PaasID
+  optional string container_ip = 3;              // 容器IP, ecs为项目IP
+  optional string container_name = 4;            // 容器名称, ecs为空
+  optional string node_ip = 5;                   // node_ip, ecs为空
+  optional string hostname = 6;                  // hostname
+  optional string image_name = 7;                // 镜像, ecs为空
+  optional string namespace = 8;                 // 命名空间, ecs为空
+  optional string pod_name = 9;                  // pod名称, ecs为空
+  optional string source = 10;                    // 文件名
+  optional string content = 11;                   // 内容
+  optional int64 timestamp = 12;                  // 发送时间纳秒
+}
